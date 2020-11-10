@@ -13,6 +13,7 @@ class StudentData {
     })
   }
   getOne(Snum, callback) {
+    console.log(Snum);
     const sql = 'SELECT * FROM student WHERE Snum = ?';
     db.query(sql, [Snum], (err, results) => {
       if (err) {
@@ -22,9 +23,9 @@ class StudentData {
       callback(false, results);
     })
   }
-  insertOne(Ssex, Sname, Sbirth, SID,STel,Snation,SDesc,callback) {
-    const sql = 'INSERT INTO student (Ssex,Sname,Sbirth,SID,STel,Snation,SDesc) VALUES (?,?,?,?,?,?,?)'
-    db.query(sql, [Ssex,Sname,Sbirth,SID,STel,Snation,SDesc], (err, results) => {
+  insertOne(Snum,Ssex, Sname, Sbirth, SID,STel,Snation,SDesc,photograph,callback) {
+    const sql = 'INSERT INTO student (Snum,Ssex,Sname,Sbirth,SID,STel,Snation,SDesc,photograph) VALUES (?,?,?,?,?,?,?,?,?)'
+    db.query(sql, [Snum,Ssex,Sname,Sbirth,SID,STel,Snation,SDesc,photograph], (err, results) => {
       if (err) {
         callback(true);
         return;

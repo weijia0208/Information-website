@@ -10,6 +10,7 @@ var studentRouter = require('./routes/student');
 var learnRouter = require('./routes/learn');
 var familyRouter = require('./routes/family');
 var uploadRouter = require('./routes/upload');
+var avatarRouter = require('./routes/ava');
 
 var app = express();
 
@@ -26,9 +27,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/student',studentRouter);
-app.use('./learn',learnRouter);
-app.use('./family',familyRouter);
-app.use('./upload',uploadRouter);
+app.use('/learn',learnRouter);
+app.use('/family',familyRouter);
+app.use('/upload',uploadRouter);
+app.use('/avatar',avatarRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -20,7 +20,7 @@ router.get('/', (req, res) => {
 router.post('/getone', (req, res) => {
   res.header('Access-Control-Allow-Origin', '*');
   var Snum = req.body.Snum;
-  learndata,getOne(Snum, (err, results) => {
+  learndata.getOne(Snum, (err, results) => {
     if (err) {
       console.log(err);
       return;
@@ -31,9 +31,10 @@ router.post('/getone', (req, res) => {
 
 router.post('/insertone', (req, res) => {
   res.header('Access-Control-Allow-Origin', '*');
+  console.log(req.body);
   var Snum = req.body.Snum,
       period = req.body.period,
-      schoolh = req.body.school,
+      school = req.body.school,
       witness = req.body.witness;
   learndata.insertOne(Snum,period,school,witness, (err, results) => {
     if (err) {

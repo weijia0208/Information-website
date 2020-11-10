@@ -16,10 +16,11 @@ class LoginData {
     });
   };
 
-  getOne(SID, callback) {
-    const sql = 'SELECT password FROM users WHERE SID = ?';
-    db.query(sql, [SID], (err, results) => {
+  getOne(Snum, callback) {
+    const sql = 'SELECT password FROM users WHERE Snum = ?';
+    db.query(sql, [Snum], (err, results) => {
       if (err) {
+      console.log(err);
         callback(true);
         return;
       }
@@ -28,6 +29,17 @@ class LoginData {
       callback(false, results);
     });
   }
-}
 
+  insertOne(Snum,password,callback) {
+    const sql = 'INSERT INTO users (Snum,password) VALUES (?,?)'
+    db.query(sql, [Snum,password], (err, results) => {
+      if (err) {
+      console.log(err);
+        callback(true);
+        return;
+      }
+      callback(false, results);
+    })
+  }
+}
 module.exports = LoginData;

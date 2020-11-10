@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var fs = require('fs'),
   formidable = require('formidable'),
-  AVATAR_UPLOAD_FOLDER = '/avatar/',
+  AVATAR_UPLOAD_FOLDER = '/avater/',
   domain = "http://39.96.1.58:3000";
 
 router.post('/', (req, res) => {

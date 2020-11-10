@@ -19,8 +19,10 @@ router.get('/', (req, res) => {
 
 router.post('/getone', (req, res) => {
   res.header('Access-Control-Allow-Origin', '*');
+  console.log(req.body);
   var Snum = req.body.Snum;
-  studentdata,getOne(Snum, (err, results) => {
+  console.log(Snum);
+  studentdata.getOne(Snum, (err, results) => {
     if (err) {
       console.log(err);
       return;
@@ -31,14 +33,16 @@ router.post('/getone', (req, res) => {
 
 router.post('/insertone', (req, res) => {
   res.header('Access-Control-Allow-Origin', '*');
-  var Ssex = req.body.Ssex,
+  var Snum = req.body.Snum,
+      Ssex = req.body.Ssex,
       Sname = req.body.Sname,
       Sbirth = req.body.Sbirth,
       SID = req.body.SID,
       STel = req.body.STel,
       Snation = req.body.Snation,
       SDesc = req.body.SDesc;
-  studentdata.insertOne(Ssex,Sname,Sbirth,SID,STel,Snation,SDesc, (err, results) => {
+      photograph = req.body.photograph
+  studentdata.insertOne(Snum,Ssex,Sname,Sbirth,SID,STel,Snation,SDesc,photograph, (err, results) => {
     if (err) {
       console.log(err);
       return;

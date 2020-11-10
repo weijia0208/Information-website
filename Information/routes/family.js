@@ -20,7 +20,7 @@ router.get('/', (req, res) => {
 router.post('/getone', (req, res) => {
   res.header('Access-Control-Allow-Origin', '*');
   var Snum = req.body.Snum;
-  familydata,getOne(Snum, (err, results) => {
+  familydata.getOne(Snum, (err, results) => {
     if (err) {
       console.log(err);
       return;
@@ -30,6 +30,7 @@ router.post('/getone', (req, res) => {
 })
 
 router.post('/insertone', (req, res) => {
+  console.log(req.body);
   res.header('Access-Control-Allow-Origin', '*');
   var Snum = req.body.Snum,
       Fname = req.body.Fname,

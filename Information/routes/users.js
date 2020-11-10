@@ -8,9 +8,9 @@ var logindata = new LoginData();
 
 router.post('/getone', (req, res) => {
   res.header('Access-Control-Allow-Origin', '*');
-  var sid = req.body.SID;
+  var sid = req.body.Snum;
   var psw = req.body.password;
-  console.log(req.body.SID);
+  console.log(req.body.Snum);
   logindata.getOne(sid, (err, results) => {
     if (err) {
       console.log(err);
@@ -39,7 +39,7 @@ router.post('/getone', (req, res) => {
       }else{
         res.send(JSON.stringify({
           data:{
-            SID:sid,
+            Snum:sid,
             password:psw
           },
           isLogin:true,
@@ -48,6 +48,19 @@ router.post('/getone', (req, res) => {
         }))
       }
     }
+  })
+})
+
+router.post('/insertone', (req, res) => {
+  res.header('Access-Control-Allow-Origin', '*');
+    var Snum = req.body.Snum,
+        password = req.body.password;
+    logindata.insertOne(Snum,password, (err, results) => {
+    if (err) {
+      console.log(err);
+      return;
+    }
+    res.status(200).send(results);
   })
 })
 

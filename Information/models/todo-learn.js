@@ -23,7 +23,7 @@ class TodoLearn {
     })
   }
   insertOne(Snum,period,school,witness,callback) {
-    const sql = 'INSERT INTO leatningExp (Snum,period,school,witness) VALUES (?,?,?,?)'
+    const sql = 'INSERT INTO learningExp (Snum,period,school,witness) VALUES (?,?,?,?)'
     db.query(sql, [Snum,period,school,witness], (err, results) => {
       if (err) {
         callback(true);
